@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Image Distortion</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="imgBox">    <!--First img-->
+                <img src="s1.JPG">
+                <img src="s2.jpg">   
+            </div>
+            <div class="imgBox">    <!--Transformed img-->
+                <img src="d1.JPG">
+                <img src="d2.JPG">   
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.1/gsap.min.js"></script>
+        <script src="hover.js"></script>
+        <script type="text/javascript">
+            Array.from(document.querySelectorAll('.imgBox')).forEach((e) => {
+                const imgs = Array.from(e.querySelectorAll('img'));
+                new hoverEffect({
+        parent: e,
+        intensity: 0.3,
+        image1: imgs[0].getAttribute('src'),
+        image2: imgs[1].getAttribute('src'),
+        displacementImage: '7.jpg'      //distoring image
+    });
+            })
+        </script>
+    </body>
+</html>
